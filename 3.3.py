@@ -66,18 +66,19 @@ def layer_3():
     polygon(screen, (48,  16, 38), mntn)
 
 
-def bird(x, y, k, ):
-    scr = pygame.Surface([100, 150], pygame.SRCALPHA)
+def bird(x, y, k):
+    k /= 50
+    scr = pygame.Surface([100*k, 150*k], pygame.SRCALPHA)
     brd = []
-    for i in range(0, 28):
-        a = 20 * (np.tan((i - 6*np.pi + 5)/12)**2)
+    for i in np.arange(0, 28*k):
+        a = 20*k * (np.tan((i/k - 6*np.pi + 5)/12)**2)
         brd.append([i, a])
-    for i in range(28, 100):
-        a = (102 + i*(i-50)/100)
+    for i in np.arange(28*k, 100*k):
+        a = k * (102 + i/k*(i/k-50)/100)
         brd.append([i, a])
 
     polygon(scr, (66, 33, 11), brd)
-    screen.blit(rotate(scale(scr, (2*k, 3*k)), 60), [x, y])
+    screen.blit(rotate(scr, 60), [x, y])
 
 
 FPS = 30
