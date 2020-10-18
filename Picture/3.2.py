@@ -55,7 +55,7 @@ def layer_2():
 
 FPS = 30
 screen = pygame.display.set_mode((1050, 700))
-screen.fill((, 207, 171))
+screen.fill((255, 207, 171))
 
 # background
 rect(screen, (254, 213, 196), (0, 150, 1050, 150))
